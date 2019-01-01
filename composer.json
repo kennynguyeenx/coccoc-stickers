@@ -21,6 +21,6 @@
         "phpunit/phpunit": "~4.8|~5.2"
     },
     "autoload": {
-        "psr-4": {"Kennynguyeenx\\ImageService\\": "src"}
+        "psr-4": {"Kennynguyeenx\\": "src"}
     }
 }

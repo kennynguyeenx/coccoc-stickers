@@ -26,14 +26,41 @@ More information can be found in the [PHP documentation](http://php.net/manual/e
  
 - Imagick is a native php extension to create and modify images using the ImageMagick API.
 More information can be found in the [PHP documentation](http://php.net/manual/en/intro.imagick.php).
+
 Usage
 -----
 
-Resize image:
+- Resize image:
 
 ```php
 use Kennynguyeenx\ImageService\ImageService;
 
-$imageService = new ImageService();
-$imageServie->manipulateImage();
+try {
+    $imageService = new ImageService();
+    $imageService->manipulateImage($imageUrl, $options, $outputImagePath, $outputFormat);
+} catch (Exception $exception) {
+    exit($exception->getMessage());
+}
 ```
+- $options should consist these key: width (width of new image), height (height of new image), background (background color of new image if using canvas)
+
+- I created a file to run in console to manipulate images as an example of using this class
+
+- It's located at bin directory with name manipulate_image.php
+
+- You can follow these steps to resize and convert image to the other type:
+
+1. Save a image under the folder that you want. For me, i save it under images/source folder as example_image.png
+
+![Background Image URL](README-assets/example_image.png)
+
+2. This image have size is 300x300. We will try to resize it to 200x200 and convert it from png to gif. We can run this command:
+
+```
+$ php ./bin/manipulate_image.php ./images/source/example_image.png 200x200_ ./images/destination/updated_image.png gif
+```
+
+3. This is the result:
+
+![An example stickerset](README-assets/updated_image.png.gif)
+ 

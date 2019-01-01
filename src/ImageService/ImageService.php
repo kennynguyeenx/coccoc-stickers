@@ -21,26 +21,6 @@ use Imagick;
 class ImageService
 {
     /**
-     * @param $path
-     * @return string
-     */
-    public function getMIME($path)
-    {
-        switch (pathinfo($path, PATHINFO_EXTENSION)) {
-            case 'gif':
-                return 'image/gif';
-            case 'jpg':
-                return 'image/jpg';
-            case 'png':
-                return 'image/png';
-            case 'webp':
-                return 'image/webp';
-            default:
-                return 'image/jpg';
-        }
-    }
-
-    /**
      * @param $imageUrl
      * @param $options
      * @param $outputImagePath
@@ -49,7 +29,7 @@ class ImageService
      * @throws ImageServiceException
      * @throws \ImagickException
      */
-    protected function manipulateImage($imageUrl, $options, $outputImagePath, $outputFormat)
+    public function manipulateImage($imageUrl, $options, $outputImagePath, $outputFormat)
     {
         $sourceImgContent = @file_get_contents($imageUrl, false);
 
@@ -63,7 +43,7 @@ class ImageService
         }
 
         if (!empty($options['height']) && is_numeric($options['height'])) {
-            $width = intval($options['height']);
+            $height = intval($options['height']);
         }
 
         if (!empty($options['background'])
