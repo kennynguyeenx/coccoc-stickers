@@ -42,7 +42,7 @@ try {
     exit($exception->getMessage());
 }
 ```
-- $options should consist these key: width (width of new image), height (height of new image), background (background color of new image if using canvas)
+- $options should consist these keys: width (width of new image), height (height of new image), background (background color of new image if using canvas)
 
 - I created a file to run in console to manipulate images as an example of using this class
 
